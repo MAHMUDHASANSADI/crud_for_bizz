@@ -32,7 +32,7 @@
                 <input name="image" type="file" class="form-control"></input>
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit"  class="btn btn-primary">Submit</button>
         </form>
 </body>
 </html>

@@ -22,19 +22,21 @@
     <table class="table container mt-4">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
+    @foreach($products as $product)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$product->id}}</th>
+      <td>{{$product->name}}</td>
+      <td>{{$product->description}}</td>
+      <td><img style="width: 50px; hight:50px;" src="productimg/{{$product->image}}" alt=""></td>
     </tr>
+    @endforeach
   </tbody>
 </table>
         
