@@ -10,37 +10,31 @@
 <body>
         <nav class="navbar navbar-expand-lg bg-dark">
             <div class="container">
-                <a class="navbar-brand text-light" href="/">Home Bar</a>
+                <a class="navbar-brand text-light" href="/">Edit Bar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </nav>
-    <div class="container d-flex justify-content-end mt-4">
-        <a href="product/create" class="btn btn-primary">Create Product</a>
-    </div>
-    <table class="table container mt-4">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Image</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($products as $product)
-    <tr>
-      <th scope="row">{{$product->id}}</th>
-      <td>{{$product->name}}</td>
-      <td>{{$product->description}}</td>
-      <td><img style="width: 50px; hight:50px;" src="productimg/{{$product->image}}" alt=""></td>
-      <td><a href="/product/{{$product->id}}/edit" class="btn btn-danger">Edit</a></td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-        
+        <h1>Edit Product #{{$product->name}}</h1>
+        <form class="container mt-4" method="POST" action="/product/update" enctype= multipart/form-data>
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                <input type="text" class="form-control" name="name">
+                
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Description</label>
+                <textarea name="description" type="text" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Image</label>
+                <input name="image" type="file" class="form-control"></input>
+            </div>
+            
+            <button type="submit"  class="btn btn-primary">Submit</button>
+        </form>
 </body>
 </html>

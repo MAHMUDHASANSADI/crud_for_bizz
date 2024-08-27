@@ -9,8 +9,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
-        return view('product.index',['products'=>$products]);
+        
+        return view('product.index',['products'=>Product::get()]);
     }
     public function create()
     {
@@ -42,6 +42,11 @@ class ProductController extends Controller
 
 
     }
-
+    public function edit($id)
+    {
+        return view('product.edit',[
+            'product'=>Product::find($id)
+        ]);
+    }
   
 }
